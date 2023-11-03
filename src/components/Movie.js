@@ -21,7 +21,7 @@ const Movie = (props) => {
       })
   }, [id]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (id) => {
     deleteMovie(movie.id);
     navigate("/movies");
   }
