@@ -24,6 +24,10 @@ const App = (props) => {
   }, []);
 
   const deleteMovie = (id) => {
+    axios.delete(`http://localhost:9000/api/movies/${id}`)
+      .then((res) => {
+        setMovies(res.data)
+      })
   }
 
   const addToFavorites = (movie) => {
@@ -44,7 +48,7 @@ const App = (props) => {
           <Routes>
             <Route path="movies/edit/:id" element={<EditMovieForm setMovies={setMovies}/>} />
 
-            <Route path="movies/:id" element={<Movie />}/>
+            <Route path="movies/:id" element={<Movie deleteMovie={deleteMovie} />}/>
 
             <Route path="movies" element={<MovieList movies={movies} />} />
 
