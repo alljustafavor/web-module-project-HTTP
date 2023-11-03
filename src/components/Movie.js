@@ -21,8 +21,8 @@ const Movie = (props) => {
       })
   }, [id]);
 
-  const handleSubmit = async (id) => {
-    await deleteMovie(movie.id);
+  const handleSubmit = () => {
+    deleteMovie(movie.id);
     navigate("/movies");
   }
 
